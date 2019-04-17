@@ -1,0 +1,6 @@
+framework module PDChatSDKFramework {
+  umbrella header "PDChatSDKFramework.h"
+
+  export *
+  module * { export * }
+}
