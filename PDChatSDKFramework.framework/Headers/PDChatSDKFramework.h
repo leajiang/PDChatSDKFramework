@@ -21,4 +21,5 @@ FOUNDATION_EXPORT const unsigned char PDChatSDKFrameworkVersionString[];
 #import <PDChatSDKFramework/PDChatMessageManager.h>
 #import <PDChatSDKFramework/PDConversationModel.h>
 #import <PDChatSDKFramework/PDMessageModel.h>
+#import <PDChatSDKFramework/PDChatUser.h>
 #import <PDChatSDKFramework/PDError.h>

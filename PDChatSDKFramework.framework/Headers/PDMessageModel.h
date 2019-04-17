@@ -23,31 +23,6 @@ typedef enum : NSUInteger {
     PDMessageTypeNotice = 10,
 } PDMessageType;
 
-/**
- 1.客户排队
- 2.客服和客户建立会话
- 3.客服主动邀请客户会话
- 4.客户转人工服务
- 5.客户和机器人建立会话会话操作
- 6.客服成功关注某某客户
- 7.客服取消关注某某客户
- 8.客服成功拉黑某某客户
- 9.客服成功取消拉黑某某客户
- 10.客服A 把客户转接给客服B
- 11.客服A 把客户转接给客服组C会话结束
- 12.客服结束会话
- 13.客户超时未回复系统自动结束会话
- 14.客服A拉黑用户  会话结束
- 15.客服离线会话结束
- 16.客服超时未回复会话结束
- 17.客户排队未接入会话 离开
- 18.客服被管理者抢接
- 19.客服邀请评价
- 20.客户完成评价
- CUSTOMER_NOT_ANSWER(21,"客服不在线 客户无人应答"),
- NOTICE_LINE_STATUS_ON(22,"通知在线状态"),
- NOTICE_LINE_STATUS_OFF(23,"通知离线状态")
- */
 
 typedef enum : NSUInteger {
     PDMessageChatTypeChat = 1,
