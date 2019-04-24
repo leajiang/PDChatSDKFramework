@@ -139,7 +139,7 @@
                               messageChatType:(PDMessageChatType)messageType;
 
 /**
- 发送消息 异步方法
+ 发送消息 异步方法（包含了saveMessage与sendPackage方法）
  
  @param message PDMessageModel
  */
@@ -217,6 +217,11 @@
  */
 -(void)againSendMessageByStatusSending;
 
+/**
+ 消息业务逻辑处理
+
+ @param message id
+ */
 -(void)didReceiveMessage:(id)message;
 @end
 

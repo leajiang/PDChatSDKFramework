@@ -14,28 +14,32 @@
 
 + (instancetype)shareManager;
 
+/**
+ 胚豆SDK申请的key
+ */
+@property(copy,nonatomic)NSString * secretKey;
+/**
+ 高德地图申请的key
+ */
+@property(copy,nonatomic)NSString * lbsAmapKey;
 
 /**
  C端登录服务器
 
- @param key 商家key
+ @param businessKey 商家key
  @param visitSource 商家名字/项目名字
  @param customerAccount 客户账号
  @param customerNickname 客户昵称(非必传)
  @param customerHeadUrl 客户头像(非必传)
  @param viewController 当前控制器
- @param bundleId Bundle Identifier
- @param secretKey 秘钥
  @param pderror 错误信息
  */
-+ (void)pdchatUserLoginWithBusinessKey:(NSString *)key
+- (void)pdchatUserLoginWithBusinessKey:(NSString *)businessKey
                        withVisitSource:(NSString *)visitSource
                    withCustomerAccount:(NSString *)customerAccount
                   withCustomerNickname:(NSString *)customerNickname
                    withCustomerHeadUrl:(NSString *)customerHeadUrl
              withCurrentViewController:(UIViewController *)viewController
-                              bundleId:(NSString *)bundleId
-                             secretKey:(NSString *)secretKey
                             errorBlock:(void(^)(PDError *error))pderror;
 
 
@@ -44,23 +48,19 @@
 
  @param loginAccount 登陆账号
  @param loginPwd 登录密码
- @param bundleId Bundle Identifier
- @param secretKey 秘钥
  @param pderror 错误信息
  */
-+ (void)pdchatBusinessLoginWithBusinessAccount:(NSString *)loginAccount
+- (void)pdchatBusinessLoginWithBusinessAccount:(NSString *)loginAccount
                                       loginPwd:(NSString *)loginPwd
-                                      bundleId:(NSString *)bundleId
-                                     secretKey:(NSString *)secretKey
                                     errorBlock:(void(^)(PDError *error))pderror;
 
 
 /**
  B端跳转到在线咨询列表
 
- @param viewController 当前控制
+ @param viewController 当前控制器
  */
-+ (void)pdchatBussinessIntoOnlineConsultationByCurrentViewController:(UIViewController *)viewController;
+- (void)pdchatBussinessIntoOnlineConsultationByCurrentViewController:(UIViewController *)viewController;
 
 
 
@@ -69,7 +69,7 @@
 
  @param application UIApplication
  */
-+ (void)applicationDidEnterBackground:(UIApplication *)application;
+- (void)applicationDidEnterBackground:(UIApplication *)application;
 
 
 /**
@@ -77,6 +77,6 @@
 
  @param application UIApplication
  */
-+ (void)applicationWillEnterForeground:(UIApplication *)application;
+- (void)applicationWillEnterForeground:(UIApplication *)application;
 
 @end

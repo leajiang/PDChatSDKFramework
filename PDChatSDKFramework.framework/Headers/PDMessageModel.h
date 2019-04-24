@@ -23,7 +23,6 @@ typedef enum : NSUInteger {
     PDMessageTypeNotice = 10,
 } PDMessageType;
 
-
 typedef enum : NSUInteger {
     PDMessageChatTypeChat = 1,
     PDMessageChatTypeGroupChat,
