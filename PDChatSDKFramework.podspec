@@ -9,6 +9,8 @@ spec.source       = { :git => 'https://github.com/leajiang/PDChatSDKFramework.gi
 spec.platform     = :ios, '8.0'
 spec.vendored_frameworks = 'PDChatSDKFramework.framework'
 spec.frameworks   = 'UIKit','AVFoundation','Foundation'
+spec.resource = "Resources/PDChatResource.bundle"
+
 spec.dependency 'XMPPFramework'
 spec.dependency 'FMDB'
 spec.dependency 'AFNetworking'
@@ -20,4 +22,7 @@ spec.dependency 'SDWebImage'
 spec.dependency 'MJRefresh'
 spec.dependency 'DACircularProgress'
 
+spec.dependency 'AMap3DMap-NO-IDFA'
+spec.dependency 'AMapSearch-NO-IDFA'
+spec.dependency 'AMapLocation-NO-IDFA'
 end
