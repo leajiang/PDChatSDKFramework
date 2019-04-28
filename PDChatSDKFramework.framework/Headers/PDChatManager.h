@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PDError.h"
+#import "PDChatError.h"
 
 @interface PDChatManager : NSObject
 
 + (instancetype)shareManager;
 
 /**
- 胚豆SDK申请的key
+ 胚豆SDK申请的应用key
  */
 @property(copy,nonatomic)NSString * secretKey;
 /**
- 高德地图申请的key
+ 高德地图申请的key（如不传则聊天不能发送当前位置）
  */
 @property(copy,nonatomic)NSString * lbsAmapKey;
 
@@ -40,7 +40,7 @@
                   withCustomerNickname:(NSString *)customerNickname
                    withCustomerHeadUrl:(NSString *)customerHeadUrl
              withCurrentViewController:(UIViewController *)viewController
-                            errorBlock:(void(^)(PDError *error))pderror;
+                            errorBlock:(void(^)(PDChatError *error))pderror;
 
 
 /**
@@ -52,7 +52,7 @@
  */
 - (void)pdchatBusinessLoginWithBusinessAccount:(NSString *)loginAccount
                                       loginPwd:(NSString *)loginPwd
-                                    errorBlock:(void(^)(PDError *error))pderror;
+                                    errorBlock:(void(^)(PDChatError *error))pderror;
 
 
 /**

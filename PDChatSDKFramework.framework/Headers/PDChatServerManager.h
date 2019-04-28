@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PDError.h"
+#import "PDChatError.h"
 
 @interface PDChatServerManager : NSObject
 
@@ -16,7 +16,7 @@
 /**
  当前连接状态
  */
-@property(assign,nonatomic)BOOL PDXMPPConnected;
+@property(assign,nonatomic)BOOL PDChatConnected;
 
 /**
  连接服务器
@@ -27,7 +27,7 @@
  */
 - (void)connectServerByimAccount:(NSString *)imAccount
                   withimPassword:(NSString *)imPassword
-                      completion:(void (^)(PDError *aError))aCompletionBlock;
+                      completion:(void (^)(PDChatError *aError))aCompletionBlock;
 
 /**
  注销

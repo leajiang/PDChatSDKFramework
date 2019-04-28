@@ -8,20 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PDConversationModel.h"
-#import "PDMessageModel.h"
+#import "PDChatConversationModel.h"
+#import "PDChatMessageModel.h"
 
 @protocol PDChatMessageManagerDelegate <NSObject>
 
 @optional
 
 /**
- 获取到PDMessageModel消息 上层通讯
+ 获取到PDChatMessageModel消息 上层通讯业务处理
  
- @param message PDMessageModel
+ @param message PDChatMessageModel
  */
--(void)didReceiveMessage:(PDMessageModel *)message;
+-(void)didReceiveMessage:(PDChatMessageModel *)message;
 
+/**
+ 当前未读消息条数的实时回调
+ 
+ @param count 未读条数
+ */
+- (void)pdChatUnreadmessageCount:(NSInteger)count;
 
 /**
  某条消息发送状态改变时回调
@@ -31,12 +37,10 @@
  */
 -(void)updateMessage:(NSString *)msgId sendStatus:(PDMessageSendStatus)status;
 
-
 /**
  当前登录账号被强制退出时会收到该回调
  */
 - (void)userAccountDidForcedToLogout:(NSString *)msg;
-
 
 /**
  业务功能处理
@@ -59,9 +63,9 @@
  @param content 内容
  @param to 接受者
  @param messageType 单聊/群聊
- @return PDMessageModel
+ @return PDChatMessageModel
  */
--(PDMessageModel *)getTextMessageByText:(NSString *)content
+-(PDChatMessageModel *)getTextMessageByText:(NSString *)content
                                      to:(NSString *)to
                                     ext:(NSString *)ext
                         messageChatType:(PDMessageChatType)messageType;
@@ -74,9 +78,9 @@
  @param image 图片
  @param to 接受者
  @param messageType messageType 单聊/群聊
- @return PDMessageModel
+ @return PDChatMessageModel
  */
--(PDMessageModel *)getImageMessageByRemoteFilePath:(NSString *)remoteFilePath
+-(PDChatMessageModel *)getImageMessageByRemoteFilePath:(NSString *)remoteFilePath
                                  thumbnailFilePath:(NSString *)thumbnailFilePath
                                              image:(UIImage *)image
                                                 to:(NSString *)to
@@ -92,9 +96,9 @@
  @param duration 播放时间
  @param to 接收者
  @param messageType 单聊/群聊
- @return PDMessageModel
+ @return PDChatMessageModel
  */
--(PDMessageModel *)getAudioMessageByRemoteFilePath:(NSString *)remoteFilePath
+-(PDChatMessageModel *)getAudioMessageByRemoteFilePath:(NSString *)remoteFilePath
                                           duration:(NSInteger)duration
                                                 to:(NSString *)to
                                                ext:(NSString *)ext
@@ -109,9 +113,9 @@
  @param address 地址
  @param to 接收者
  @param messageType 单聊/群聊
- @return PDMessageModel
+ @return PDChatMessageModel
  */
--(PDMessageModel *)getMapMessageBylongitude:(CGFloat)longitude
+-(PDChatMessageModel *)getMapMessageBylongitude:(CGFloat)longitude
                                    latitude:(CGFloat)latitude
                                     address:(NSString *)address
                                          to:(NSString *)to
@@ -128,9 +132,9 @@
  @param commodityUrl 商品链接
  @param messageType messageType 单聊/群聊
  @param to 接收者
- @return PDMessageModel
+ @return PDChatMessageModel
  */
--(PDMessageModel *)getGoodsMessageBygoodsname:(NSString *)name
+-(PDChatMessageModel *)getGoodsMessageBygoodsname:(NSString *)name
                                         price:(NSString *)price
                                        imgUrl:(NSString *)imgUrl
                                  commodityUrl:(NSString *)commodityUrl
@@ -141,31 +145,31 @@
 /**
  发送消息 异步方法（包含了saveMessage与sendPackage方法）
  
- @param message PDMessageModel
+ @param message PDChatMessageModel
  */
--(void)sendMessage:(PDMessageModel *)message;
+-(void)sendMessage:(PDChatMessageModel *)message;
 
 
 /**
  存储消息
  
- @param message PDMessageModel
+ @param message PDChatMessageModel
  */
--(void)saveMessage:(PDMessageModel *)message;
+-(void)saveMessage:(PDChatMessageModel *)message;
 
 
 /**
  发送协议包
  
- @param message PDMessageModel
+ @param message PDChatMessageModel
  */
--(void)sendPackage:(PDMessageModel *)message;
+-(void)sendPackage:(PDChatMessageModel *)message;
 
 /**
  获取所有的会话列表数据 异步方法
  
  */
--(void)getAllConversation:(void(^)(NSMutableArray <PDConversationModel *>* conversations))finishBlock;
+-(void)getAllConversation:(void(^)(NSMutableArray <PDChatConversationModel *>* conversations))finishBlock;
 
 /**
  根据会话id获取聊天数据 异步方法
@@ -174,8 +178,8 @@
  @param message 传入的messag后面的10条 分页用 第一次请求则传nil
  */
 -(void)loadMessagesWithConversationId:(NSString *)conversationId
-                        pagingMessage:(PDMessageModel *)message
-                               finish:(void(^)(NSMutableArray <PDMessageModel *>* messages))finishBlock;
+                        pagingMessage:(PDChatMessageModel *)message
+                               finish:(void(^)(NSMutableArray <PDChatMessageModel *>* messages))finishBlock;
 
 /**
  根据会话id获取聊天数据 异步方法
@@ -184,8 +188,8 @@
  @param message 传入的messag后面的10条 分页用 第一次请求则传nil
  */
 -(void)loadMessagesWithBusinessId:(NSString *)businessId
-                    pagingMessage:(PDMessageModel *)message
-                           finish:(void(^)(NSMutableArray <PDMessageModel *>* messages))finishBlock;
+                    pagingMessage:(PDChatMessageModel *)message
+                           finish:(void(^)(NSMutableArray <PDChatMessageModel *>* messages))finishBlock;
 
 /**
  根据会话id获取会话 同步方法
@@ -193,7 +197,7 @@
  @param conversationid 会话id
  @return 会话模型
  */
--(PDConversationModel *)loadConversationWithConversationid:(NSString *)conversationid;
+-(PDChatConversationModel *)loadConversationWithConversationid:(NSString *)conversationid;
 
 /**
  更新已读或未读状态
