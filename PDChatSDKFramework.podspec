@@ -26,3 +26,9 @@ spec.dependency 'AMap3DMap-NO-IDFA'
 spec.dependency 'AMapSearch-NO-IDFA'
 spec.dependency 'AMapLocation-NO-IDFA'
 end
+
+#1.标记tag
+#2.配置文件
+#3.创建账号 pod trunk register 邮箱 联系人 --description="描述" --verbose
+#4.验证
+#5.提交pod trunk push
