@@ -36,7 +36,7 @@ pod repo update
 
 1.配置Info.plist 文件
 
-iOS9为了增强数据访问安全，将所有的http请求都改为了https，为了能够在iOS9中正常使用地图SDK，请在"Info.plist"中进行如下配置，否则影响SDK的使用。
+iOS9为了增强数据访问安全，将所有的http请求都改为了https，为了能够在iOS9中正常使用SDK，请在"Info.plist"中进行如下配置，否则影响SDK的使用。
 <key>NSAppTransportSecurity</key>
 <dict>
 <key>NSAllowsArbitraryLoads</key>
