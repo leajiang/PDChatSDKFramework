@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
 spec.name         = 'PDChatSDKFramework'
-spec.version      = '1.1.4'
+spec.version      = '1.1.5'
 spec.license      = { :type => 'MIT' }
 spec.homepage     = 'https://github.com/leajiang/PDChatSDKFramework'
 spec.authors      = { "jiangle" => "649498510@qq.com" }
 spec.summary      = 'jiangle.'
-spec.source       = { :git => 'https://github.com/leajiang/PDChatSDKFramework.git', :tag =>'1.1.4'  }
+spec.source       = { :git => 'https://github.com/leajiang/PDChatSDKFramework.git', :tag =>'1.1.5'  }
 spec.platform     = :ios, '8.0'
 spec.vendored_frameworks = 'PDChatSDKFramework.framework','iflyMSC.framework'
 spec.frameworks   = 'UIKit','AVFoundation','Foundation'
