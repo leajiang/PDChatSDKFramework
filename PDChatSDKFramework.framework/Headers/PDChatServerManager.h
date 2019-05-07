@@ -29,6 +29,17 @@
                   withimPassword:(NSString *)imPassword
                       completion:(void (^)(PDChatError *aError))aCompletionBlock;
 
+
+/**
+ 上线
+ */
+- (void)online;
+
+/**
+ 离线
+ */
+- (void)offline;
+
 /**
  注销
  */
