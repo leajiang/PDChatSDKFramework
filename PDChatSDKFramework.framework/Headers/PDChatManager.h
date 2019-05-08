@@ -6,12 +6,6 @@
 //  Copyright © 2019年 PeiDou. All rights reserved.
 //
 
-//#1.标记tag
-//#2.配置文件
-//#3.创建账号 pod trunk register 邮箱 联系人 --description="描述" --verbose
-//#4.验证
-//#5.提交pod trunk push
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PDChatError.h"
