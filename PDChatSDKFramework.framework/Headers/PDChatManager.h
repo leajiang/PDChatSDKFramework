@@ -40,7 +40,7 @@
                   withCustomerNickname:(NSString *)customerNickname
                    withCustomerHeadUrl:(NSString *)customerHeadUrl
              withCurrentViewController:(UIViewController *)viewController
-                            errorBlock:(void(^)(PDChatError *error))pderror;
+                            errorBlock:(void(^)(PDChatError *error,id config))pderror;
 
 
 /**
