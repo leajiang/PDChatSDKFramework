@@ -2,8 +2,8 @@
 //  PDChatSDKFramework.h
 //  PDChatSDKFramework
 //
-//  Created by PeiDou on 2019/3/13.
-//  Copyright © 2019年 PeiDou. All rights reserved.
+//  Created by 郑海文 on 2019/5/7.
+//  Copyright © 2019 郑海文. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
